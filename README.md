@@ -1,3 +1,3 @@
-# 14-8-GIF-search-engine
+# 15-5-ES6-learning-promise
 
-https://matwidozs.github.io/14-8-GIF-search-engine/
+https://matwidozs.github.io/15-5-ES6-learning-promise/
