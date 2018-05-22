@@ -13,12 +13,6 @@ App = React.createClass({
 		});
 		this.getGif(searchingText, gif)
 			.then(response => {
-				let data = JSON.parse(xhr.responseText).data;
-				let gif = {
-					url: data.fixed_width_downsampled_url,
-					sourceUrl: data.url
-				};
-				callback(gif);
 				this.setState({
 					loading: false,
 					gif: gif,
@@ -36,7 +30,12 @@ App = React.createClass({
 				xhr.open('GET', url);
 				xhr.onload = function() {
 					if (xhr.status === 200) {
-						resolve(this.response);
+						let data = JSON.parse(xhr.responseText).data;
+						let gif = {
+							url: data.fixed_width_downsampled_url,
+							sourceUrl: data.url
+						};
+						resolve(this.gif);
 					} else {
 						reject(new Error(this.statusText));
 					}
