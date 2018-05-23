@@ -21,7 +21,7 @@
         "sassprefixer:sass": "node-sass --output-style expanded --source-map true -o css/ sass/",
         "sassprefixer:autoprefixer": "autoprefixer-cli css/style.css",
         "watch:browsersync": "browser-sync start --server --files css/*.css *.html js/*.js",
-        "server": "http-server",
+        "start": "http-server -a localhost -p 8000 -c-1",
         "compile": "babel script.js --watch --out-file script-compiled.js"
     },
     "keywords": [],

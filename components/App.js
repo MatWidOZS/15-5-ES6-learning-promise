@@ -12,14 +12,16 @@ App = React.createClass({
 			loading: true
 		});
 		this.getGif(searchingText, gif)
-			.then(response => {
+			.then(function(gif) {
 				this.setState({
 					loading: false,
 					gif: gif,
 					searchingText: searchingText
 				});
-			})
-			.catch(error => console.error('Something went wrong', error));
+			}.bind(this))
+			.catch(function(error) {
+				console.error(error);
+			});
 	},
 
 	getGif: function(searchingText, callback) {
@@ -35,7 +37,7 @@ App = React.createClass({
 							url: data.fixed_width_downsampled_url,
 							sourceUrl: data.url
 						};
-						resolve(this.gif);
+						resolve(gif);
 					} else {
 						reject(new Error(this.statusText));
 					}
